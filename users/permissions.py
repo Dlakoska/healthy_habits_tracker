@@ -17,3 +17,4 @@ class IsUser(permissions.BasePermission):
         if obj.email == request.user.email:
             return True
         return False
+    
