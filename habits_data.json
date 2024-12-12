@@ -1,0 +1,87 @@
+[
+  {
+    "model": "habits.habit",
+    "pk": 1,
+    "fields": {
+      "owner": 2,
+      "action": "Выпивать стакан свежевыжатого апельсинового сока",
+      "time": "12:12:00",
+      "place": "Дома",
+      "periodicity": 1,
+      "time_to_complete": 120,
+      "is_good": true,
+      "is_public": true,
+      "related_habit": null,
+      "award": null,
+      "created_date": "2024-11-21"
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 2,
+    "fields": {
+      "owner": 2,
+      "action": "Бегать по утрам",
+      "time": "12:02:00",
+      "place": "Парке",
+      "periodicity": 1,
+      "time_to_complete": 120,
+      "is_good": false,
+      "is_public": true,
+      "related_habit": 1,
+      "award": null,
+      "created_date": "2024-11-21"
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 3,
+    "fields": {
+      "owner": 3,
+      "action": "Отказываться от жирного по вечерам",
+      "time": "12:00:00",
+      "place": "Дома",
+      "periodicity": 1,
+      "time_to_complete": 120,
+      "is_good": false,
+      "is_public": true,
+      "related_habit": 4,
+      "award": null,
+      "created_date": "2024-11-22"
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 4,
+    "fields": {
+      "owner": 3,
+      "action": "Пить йогурты по вечерам",
+      "time": "12:00:00",
+      "place": "Дома",
+      "periodicity": 1,
+      "time_to_complete": 120,
+      "is_good": true,
+      "is_public": true,
+      "related_habit": null,
+      "award": null,
+      "created_date": "2024-11-22"
+    }
+  },
+  {
+    "model": "habits.habit",
+    "pk": 5,
+    "fields": {
+      "owner": 4,
+      "action": "Не курить по вечерам",
+      "time": "11:24:00",
+      "place": "Дома",
+      "periodicity": 1,
+      "time_to_complete": 120,
+      "is_good": false,
+      "is_public": false,
+      "related_habit": null,
+      "award": "Съем яблоко и шоколадку",
+      "created_date": "2024-11-23"
+    }
+  }
+]

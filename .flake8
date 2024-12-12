@@ -1,0 +1,4 @@
+[flake8]
+exclude = .venv,__init__.py, migrations
+max-line-length = 120
+exclude = migrations, .git, .venv

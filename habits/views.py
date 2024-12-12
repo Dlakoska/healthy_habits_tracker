@@ -1,4 +1,4 @@
-from rest_framework import viewsets, generics
+from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from habits.models import Habit
@@ -27,6 +27,7 @@ class HabitViewSet(viewsets.ModelViewSet):
 
 class PublicHabitListAPIView(generics.ListAPIView):
     """Вывод привычек с признаком публичный"""
+
     serializer_class = PublicHabitSerializer
     pagination_class = MyPaginator
 
@@ -35,5 +36,5 @@ class PublicHabitListAPIView(generics.ListAPIView):
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
-        context['request'] = self.request
+        context["request"] = self.request
         return context

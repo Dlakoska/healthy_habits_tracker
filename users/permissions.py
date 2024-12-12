@@ -11,10 +11,11 @@ class IsOwner(permissions.BasePermission):
 
 
 class IsUser(permissions.BasePermission):
-    """Проверка, принадлежит ли объект пользователю, с котором осуществляется действие."""
+    """
+    Проверка, принадлежит ли объект пользователю, с котором осуществляется действие.
+    """
 
     def has_object_permission(self, request, view, obj):
         if obj.email == request.user.email:
             return True
         return False
-    

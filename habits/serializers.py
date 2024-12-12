@@ -1,19 +1,22 @@
 from rest_framework import serializers
 
 from habits.models import Habit
-from habits.validators import validate_periodicity, validate_time_to_complete, RewardValidate, IsGoodValidate, \
-    RelatedHabitValidate
+from habits.validators import (IsGoodValidate, RelatedHabitValidate,
+                               RewardValidate, validate_periodicity,
+                               validate_time_to_complete,)
 
 
 class HabitSerializer(serializers.ModelSerializer):
     periodicity = serializers.IntegerField(validators=[validate_periodicity])
-    time_to_complete = serializers.IntegerField(validators=[validate_time_to_complete])
+    time_to_complete = serializers.IntegerField(
+        validators=[validate_time_to_complete]
+    )
 
     class Meta:
         model = Habit
-        exclude = ['owner']
+        exclude = ["owner"]
         validators = [
-            RewardValidate(field_1='related_habit', field_2='award'),
+            RewardValidate(field_1="related_habit", field_2="award"),
             IsGoodValidate(),
             RelatedHabitValidate(),
         ]
@@ -24,7 +27,7 @@ class HabitRelatedSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Habit
-        fields = ('habit',)
+        fields = ("habit",)
 
     def get_habit(self, obj):
         return str(obj)
@@ -35,7 +38,7 @@ class PublicHabitSerializer(serializers.ModelSerializer):
     related_habit = HabitRelatedSerializer(read_only=True)
 
     def get_is_owner(self, obj):
-        request = self.context.get('request')
+        request = self.context.get("request")
         if request and request.user == obj.owner:
             return "Моя привычка"
         return "Не моя привычка"
@@ -43,5 +46,14 @@ class PublicHabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
         fields = (
-            'id', 'is_owner', 'action', 'time', 'place', 'periodicity', 'time_to_complete', 'is_good', 'related_habit',
-            'award')
+            "id",
+            "is_owner",
+            "action",
+            "time",
+            "place",
+            "periodicity",
+            "time_to_complete",
+            "is_good",
+            "related_habit",
+            "award",
+        )
