@@ -1,1 +1,1 @@
-# DRF_kyrsa4
+Создание и запуск контейнеров docker-compose up -d --build
